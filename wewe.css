@@ -1,0 +1,152 @@
+/*bordure des table*/
+td{
+    border: 3px #1B4B67 solid;
+    border-radius: 5px;
+}
+
+/*Css principale*/
+body{
+    background: linear-gradient(#8EB3C8,white);
+    color:#AE3030;
+}
+
+/*Css annule bordure logo*/
+.noBorder{
+    border:0px;
+}
+
+/*taille logo medicament*/
+#medicimage{
+    border-radius: 15px;
+    padding: 5px;
+    height: 170px; 
+}
+
+@media (max-width:992px){
+    .medicimage{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 30px;
+        height: 130px; 
+        border-radius: 15px;
+        padding: 5px;
+    }
+}
+
+@media (max-width:768px){
+    .medicimage{
+        display: none;
+    }
+}
+
+
+/*s h1*/
+h1{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*CSS h2*/
+h2{
+    font-size: 1.75em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Css case mode d'emploi*/
+#modeEmploi{
+    background-image: url("images/devanture.jpg");
+    background-repeat: no-repeat ;
+    background-size: auto 100%;
+}
+
+@media (max-width:992px){
+    #modeEmploi{
+        background-image: url("images/devanture.jpg");
+        background-repeat: no-repeat ;
+        background-size: cover;
+    }
+}
+
+@media (max-width:768px){
+    #modeEmploi{
+        background-image: url("images/devanture.jpg");
+        background-repeat: no-repeat ;
+        background-size: cover;
+    }
+}
+
+/*Taille case du 100%*/
+.title{
+    width: 100%;
+}
+
+/*Taille case du logo*/
+#logosize{
+    width: 20%;
+}
+
+#casePhoto{
+    background-image: url("images/devanture2.jpg");
+    background-size: auto 100%;
+
+}
+
+img{
+    transition: all .2s ease-in-out;  
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+.noback{
+    background:  none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col {
+    width: 33.33%;
+}
+
+#logoIUT{
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.send{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.images{
+    height: 180px;
+}
+
+@media (max-width:992px){
+    .images{
+        height: 100px;
+    }
+}
+
+.border{
+    border: 3px #1B4B67 solid;
+    border-radius: 5px;
+
+}
+
+.container {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.icon {
+    display: block;
+    text-align:center;
+}
