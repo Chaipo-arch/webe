@@ -95,15 +95,19 @@
 						$tabTypes = file($nomficTypes,FILE_IGNORE_NEW_LINES);
 						
 						foreach($tabTypes as $table) {
-							if(isset($_POST['medic']) || $_POST['labo'] != ""){
+							$tab = explode(';', $table);
+							$copy = $tab;
+							if(isset($_POST['medic'])!='Type de médicament' && $_POST['labo'] != 'Laboratoire'){
 								foreach($tab as $cases){
-									if($_POST['medic'] == $cases ){
-										echo '<td>'.$cases.'</td>';
-									}
+									if(STRPOS($table,$_POST['medic']) && STRPOS($table,$_POST['labo']) ){
+										echo '<tr> ';
+										foreach($copy as $casese){ 
+											echo '<td>'.$casese.'</td>';
+										}'</tr>';
+									} 
 								}
 							}else{
-								echo'<tr>';
-								$tab = explode(';', $table);
+							echo'<tr>';
 								foreach($tab as $cases){
 									echo '<td>'.$cases.'</td>';
 								}
