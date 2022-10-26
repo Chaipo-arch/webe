@@ -50,7 +50,7 @@
 							throw new Exception('Fichier '.$nomficTypes.' non trouvé.');
 						}
 						$tabTypes = file($nomficTypes,FILE_IGNORE_NEW_LINES);
-						echo "<select name='medicament'>";
+						echo "<select name='medic'>";
 						foreach($tabTypes as $table) {
 							
 							echo'<option value='.$table.' > '.$table.'</option>' ;
@@ -67,7 +67,7 @@
 							throw new Exception('Fichier '.$nomficTypes.' non trouvé.');
 						}
 						$tabTypes = file($nomficTypes,FILE_IGNORE_NEW_LINES);
-						echo "<select name='var'>";
+						echo "<select name='labo'>";
 						foreach($tabTypes as $table) {
 							echo'<option value='.$table.' > '.$table.'</option>' ;
 						}
@@ -81,38 +81,44 @@
 			</td>				
 		</tr>
 	</table>
-	<table class="largeur100 contenu">
-		<tr>
-			<!--- Ligne Résultat de la recherche -->
-			<td>
+	
+			
 				<table class="largeur100">
-					<tr>
+					
 						<?php
 
+						try{
+							$nomficTypes = "../fichier/MedicamentsLight.csv" ;
+							if ( !file_exists($nomficTypes) ) {
+							throw new Exception('Fichier '.$nomficTypes.' non trouvé.');
+						}
+						$tabTypes = file($nomficTypes,FILE_IGNORE_NEW_LINES);
+						
+						foreach($tabTypes as $table) {
+							if(isset($_POST['medic']) || $_POST['labo'] != ""){
+								foreach($tab as $cases){
+									if($_POST['medic'] == $cases ){
+										echo '<td>'.$cases.'</td>';
+									}
+								}
+							}else{
+								echo'<tr>';
+								$tab = explode(';', $table);
+								foreach($tab as $cases){
+									echo '<td>'.$cases.'</td>';
+								}
+							}
+							echo'</tr>';
+						}
+						} catch ( Exception $e ) {
+						// Affichage message d'erreur
+						}	
+
 						?>
-						<td class="largeurColonne50"><h1>Désignation</h1></td>
-						<td class="largeurColonne25"><h1>Présentation</h1></td>
-						<td class="largeurColonne25"><h1>Laboratoire</h1></td>
-					</tr>
-					<tr>
-						<td class="largeurColonne50"><h2>Aspirine 500mg</h2></td>
-						<td class="largeurColonne25"><h2>Effervescent</h2></td>
-						<td class="largeurColonne25"><h2>UPSA</h2></td>
-					</tr>
-					<tr>
-						<td class="largeurColonne50"><h2>Aspirine 1000mg</h2></td>
-						<td class="largeurColonne25"><h2>Comprimé</h2></td>
-						<td class="largeurColonne25"><h2>MERK</h2></td>
-					</tr>
-					<tr>
-						<td class="largeurColonne50"><h2>Doliprane 1000mg</h2></td>
-						<td class="largeurColonne25"><h2>Comprimé</h2></td>
-						<td class="largeurColonne25"><h2>SANDOZ</h2></td>
-					</tr>
+						
 				</table>
-			</td>			
-		</tr>		
-	</table>
+						
+		
 	
 	<table class="largeur100 basDePage">   <!--- Table contenant le menu et le logo de l'iut-->
 		<tr>
